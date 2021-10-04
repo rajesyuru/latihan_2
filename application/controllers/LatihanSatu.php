@@ -1,32 +1,44 @@
 <?php
-
 class LatihanSatu extends CI_Controller
 {
     public function index()
     {
-        echo "<h1>Contoh Class</h1>";
+        echo "Test Page";
     }
 
-    public function biodata()
+    public function penjumlahan()
     {
-        $this->load->view('view_biodata');
+        $nilai1 = 10;
+        $nilai2 = 20;
+
+        $penjumlahan = $nilai1 + $nilai2;
+
+        echo "Hasil penjumlahan " . $nilai1 . " + " . $nilai2 . " = " . $penjumlahan;
     }
-
-    public function biodata2()
+    // pakai model
+    public function penjumlahan2()
     {
-        $this->load->model('model_biodata');
-        $bio = $this->model_biodata->biodata();
+        $this->load->model('Model_latihansatu');
+        $hasil = $this->Model_latihansatu->jumlah();
 
-        echo "<h1>Perkenalkan</h1>";
-        echo "<br>";
-        echo "Nama: " . $bio;
+        echo "Hasil penjumlahan " . $hasil;
     }
-
-    public function biodata3()
+    //pakai model dan parameter
+    public function penjumlahan3($n1 = 0, $n2 = 0)
     {
-        $this->load->model('model_biodata');
-        $bio = $this->model_biodata->biodata();
-        $data['title'] = "Form biodata";
-        $this->load->view('view_biodata', $data);
+        $this->load->model('Model_latihansatu');
+        $hasil = $this->Model_latihansatu->jumlah2($n1, $n2);
+
+        echo "Hasil penjumlahan " . $hasil;
+    }
+    //pakai model, parameter, dan view
+    public function penjumlahan4($n1 = 0, $n2 = 0)
+    {
+        $this->load->model('Model_latihansatu');
+        $hasil = $this->Model_latihansatu->jumlah2($n1, $n2);
+
+        $data['hasil'] = $hasil;
+
+        $this->load->view('view_latihan1', $data);
     }
 }
