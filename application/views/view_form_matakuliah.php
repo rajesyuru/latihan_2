@@ -25,11 +25,14 @@
                     <th>Kode MTK</th>
                     <th>:</th>
                     <th><input type="text" name="kode" placeholder="Input Kode MTK" maxlength="10"></th>
+                    <th><?php echo form_error('kode'); ?></th>
                 </tr>
+
                 <tr>
                     <th>Nama MTK</th>
                     <th>:</th>
                     <th><input type="text" name="nama" placeholder="Input Nama MTK" maxlength="24"></th>
+                    <th><?php echo form_error('nama'); ?></th>
                 </tr>
                 <tr>
                     <th>SKS</th>
